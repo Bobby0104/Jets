@@ -4,8 +4,8 @@
 # Object Oriented Program using Jets.
 
 ## How To use
-# This app allows you create a jet and add it to your fleet or remove a jet from your fleet.
-# Are you fan of "Top Gun"? You can make your jets fight!
+# This app allows you to create a jet and add it to your fleet or remove a jet from your fleet.
+# Are you a fan of "Top Gun"? You can make your jets fight!
 # Critical missions? No problem! You can load up your cargo and equipment and send out your entire fleet.
 
 ## Technologies
