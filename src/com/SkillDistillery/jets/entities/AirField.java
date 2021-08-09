@@ -35,7 +35,7 @@ public class AirField {
 							Integer.parseInt(jetRecord[2]), Long.parseLong(jetRecord[3]));
 					fleet.add(plane);
 					break;
-				case "Personnel Cargo":
+				case "Cargo Carrier":
 					plane = new CargoPlane(jetRecord[0], Double.parseDouble(jetRecord[1]),
 							Integer.parseInt(jetRecord[2]), Long.parseLong(jetRecord[3]));
 					fleet.add(plane);
@@ -72,45 +72,50 @@ public class AirField {
 	public void dogfight() {
 		for(Jet jet: fleet) {
 			if(jet instanceof CombatReady) {
-				System.out.println("Fighting!");
+				((CombatReady) jet).fight();
 			}
 		}
 	}
 	public void loadCargo() {
 		for(Jet jet: fleet) {
-			if(jet instanceof CargoCarrier);
-			System.out.println("Loading cargo.");
+			if(jet instanceof CargoCarrier) {
+				((CargoCarrier) jet).loadCargo();
+			}
 		}
 	}
 	
 	public void fly() {
 		for(Jet jet : fleet) {
-			System.out.println("All jets flying");;
+			System.out.println(jet.getModel() + " flying");;
 		}
 	}
 		
 	
+	
 	public void removeJet() {
-		int removeJet;
+		
 		for (int i = 0; i < fleet.size(); i++) {
-			System.out.println(i+1 + "----" + fleet.get(i));
+			System.out.println(i + 1 + "----------" + fleet.get(i));
 		}
-		System.out.println("Which plane would you like removed?");
-		fleet.remove(-1);		
+		System.out.println("Which plane would you like to remove?");
+		fleet.remove(kb.nextInt() - 1);
 	}
+
 	
-	public void fastestJet() {
-		double speed = 0;
-		Jet fastestJet = fleet.get(0);
-		for(Jet jet : fleet) {
-			if(jet.getSpeed() > speed) {
-				fastestJet = jet;
-			}
-			System.out.println(jet);
+	public String viewFastestJet() {
+		double fast = 0;
+		String fastest = "";
+		for (Jet jet : fleet) {
+			if (jet.getSpeed() > fast) {
+				fast = jet.getSpeed();
+				fastest = jet.toString();
+			}		
 		}
+		return fastest;
 	}
-	
-public void addJet() {
+
+		
+	public void addJet() {
 		
 		String type;
 		String model;
@@ -148,31 +153,21 @@ public void addJet() {
 		fleet.add(newJet);
 		}
 
-//public String longestRange() {
-//	
-//
-//	int longestRange = 0;
-//	for (Jet jet : fleet) {
-//		if (jet.getRange() > longestRange) {
-//			longestRange = jet.getRange();
-//			longestRange = jet.toString();	
-//		}
-//		return longestRange;
-//		
-//	}
-//}
-public void longestRange() {
-	int range = 0;
-	Jet longestRange = fleet.get(0);
-	for(Jet jet : fleet) {
-		if(jet.getRange() > range) {
-			longestRange = jet;
+
+	public String viewLongestRange() {
+	
+		int jLongest = 0;
+	String theLongestRange = "";
+	for (Jet jet : fleet) {
+		if (jet.getRange() > jLongest) {
+			jLongest = jet.getRange();
+			theLongestRange = jet.toString();
 		}
-		System.out.println(jet);
 	}
+	return theLongestRange;
 }
 
-
+}
 
 
 
@@ -184,7 +179,6 @@ public void longestRange() {
 		
 		
 	
-}
 
 	
 	

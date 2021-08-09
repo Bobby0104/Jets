@@ -13,15 +13,8 @@ public class FighterPlane extends Jet implements CombatReady {
 	}
 	
 	@Override
-	public void flight() {
-		System.out.println(getModel() + " Flying");
+	public void fight() {
+		System.out.println(getModel() + " Fighting");
 	}
-
-	
-	
-	
-	
-	
-
 
 }

@@ -2,10 +2,8 @@ package com.SkillDistillery.jets.app;
 
 import java.util.Scanner;
 
+
 import com.SkillDistillery.jets.entities.AirField;
-import com.SkillDistillery.jets.entities.CargoPlane;
-import com.SkillDistillery.jets.entities.FighterPlane;
-import com.SkillDistillery.jets.entities.Jet;
 
 public class JetsApplication {
 
@@ -16,21 +14,10 @@ public class JetsApplication {
 	
 		JetsApplication jetsApp = new JetsApplication();
 		jetsApp.airField.readJetsFromFile();
-		jetsApp.airField.addJet();
-		jetsApp.airField.fastestJet();
-		jetsApp.airField.loadCargo();
-		jetsApp.airField.dogfight();
-		
-		
-		
 		jetsApp.start();
-		
-		
-		
-		
-		// TODO Auto-generated method stub
-
 	}
+	
+	
 	public void Menu() {
 		System.out.println("********************************");
 		System.out.println("1: List Fleet.");
@@ -47,8 +34,6 @@ public class JetsApplication {
 	
 	public void start() {
 		
-	
-		
 		Menu();
 		boolean keepGoing = true;
 		while (keepGoing) {
@@ -57,10 +42,10 @@ public class JetsApplication {
 			airField.listAllJets();
 		} else if (select.equals("2")) {
 			airField.fly();
-		} else if (select.equals("3")) {
-			airField.fastestJet();
-		} else if (select.equals("4")) {
-			airField.longestRange();
+		} else if (select.equals("3")) {			
+			System.out.println(airField.viewFastestJet());
+		} else if (select.equals("4")) {			
+		System.out.println(airField.viewLongestRange());
 		} else if (select.equals("5")) {
 			airField.loadCargo();
 		} else if (select.equals("6")) {
@@ -70,6 +55,7 @@ public class JetsApplication {
 		} else if (select.equals("8")) {
 			airField.removeJet();
 		} else if (select.equals("9")) {
+			keepGoing = false;
 			break;
 		} else {
 			System.out.println("Invalid response. Please Try again.");
@@ -79,8 +65,8 @@ public class JetsApplication {
 	}
 }
 		
+}
 		
-	}
 			
 				
 			
